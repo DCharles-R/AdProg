@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <ul class="list-group">
+                <form method="POST", class="card card-body">
+                    <h1 class="text-center display-3 py-5">
+                        Agregar lectura
+                    </h1>
+                    {% csrf_token %}
+                    {{forms}}
+                    <button>
+                        Guardar
+                    </button>
+                </form>
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

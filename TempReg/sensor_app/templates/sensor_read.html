@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Lectura actual</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{forms}}
+</form>
+
+{% for reg in lecturas %}
+
+<h2>Fecha: {{reg.fecha}}  -  Temperatura: {{reg.valor}}°C  -  Ubicación: {{reg.ubicacion}}</h2>
+
+{% endfor %}
+
+{% endblock %}

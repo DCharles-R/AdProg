@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <ul class="list-group">
+                <head>
+                    <title>Buscar Lectura</title>
+                </head>
+                <body>
+                    <h1>Buscar Lectura</h1>
+                <form method="POST", class="card card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Buscar</button>
+                </form>
+                    <div class="row">
+                        <div class="col-md-16">
+                            <h1 class="text-center display-2 py-8">
+                                {% if mensaje %}
+                                    <p>{{ mensaje }}</p>
+                                {% endif %}
+                            </h1>
+                            {% if registro %}
+                            <ul class="list-group">
+                                {% for reg in registro %}
+                                <a class="list-group-item">
+                                        <p>Lectura encontrada: {{ reg.fecha }} - {{ reg.valor }}°C - {{ reg.ubicacion }}</p>
+                                        <a class="text-center" href="{% url 'modificar_lecturas' reg.id %}">Actualizar</a>
+                                        <a class="text-center" href="{% url 'eliminar_lecturas' reg.id %}">   Eliminar</a>
+                                </a>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </body>
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <ul class="list-group">
+                <form method="POST" class="card card-body">
+                    <h1 class="text-center display-3 py-5">
+                        Eliminar Lectura
+                    </h1>
+                    <p class="text-center">¿Estás seguro de que deseas eliminar el registro "{{ registro.valor }}"?</p>
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                    <a class="text-center" href="{% url 'buscar_lecturas' %}">Cancelar</a>
+                </form>
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

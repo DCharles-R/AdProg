@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">
+                Lista de registros
+            </h1>
+            <ul class="list-group">
+                {% for reg in lecturas %}
+                <a class="list-group-item">
+                    <header class="d-flex justify-content-between">
+                        <p>Fecha: {{reg.fecha}}  -  Temperatura: {{reg.valor}}°C  -  Ubicación: {{reg.ubicacion}}</p>
+                    </header>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
